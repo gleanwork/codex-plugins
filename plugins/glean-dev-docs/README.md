@@ -21,7 +21,8 @@ is required. In Codex, add it with:
 codex mcp add glean-dev-docs --url https://developers.glean.com/mcp
 ```
 
-For another host, use its MCP setup to add `https://developers.glean.com/mcp`.
+Then start a new Codex task. For another host, use its MCP setup to add
+`https://developers.glean.com/mcp` and restart or refresh that host as needed.
 
 ## What's Included
 

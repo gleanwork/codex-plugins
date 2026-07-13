@@ -16,14 +16,15 @@ codex plugin add glean@glean-codex-plugins
 codex plugin add glean-dev-docs@glean-codex-plugins
 ```
 
-Start a new Codex task after installation so the bundled skills are available.
-
 Then connect the MCP server used by the plugin you installed:
 
 - **Glean enterprise knowledge:** ask Codex to "set up Glean" and the `glean`
   plugin's `connect-glean` skill will walk you through it.
 - **Glean developer docs:** run
   `codex mcp add glean-dev-docs --url https://developers.glean.com/mcp`.
+
+Start a new Codex task after setup so the bundled skills and MCP tools are
+available.
 
 ## Plugins
 

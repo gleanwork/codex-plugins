@@ -12,8 +12,6 @@ codex plugin marketplace add gleanwork/codex-plugins
 codex plugin add glean@glean-codex-plugins
 ```
 
-Start a new Codex task after installation so the bundled skills are available.
-
 ### 2. Configure your Glean MCP server
 
 Get your server URL and server name from the
@@ -21,10 +19,11 @@ Get your server URL and server name from the
 
 ```bash
 codex mcp add glean --url https://YOUR-INSTANCE-be.glean.com/mcp/YOUR-SERVER-NAME
+codex mcp login glean
 ```
 
-Verify with `codex mcp list`. OAuth authentication is handled automatically on
-first use.
+Complete the browser OAuth flow, then verify with `codex mcp list`. Start a new
+Codex task so both the bundled skills and Glean MCP tools are available.
 
 ## What's Included
 

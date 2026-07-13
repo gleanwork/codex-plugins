@@ -51,10 +51,12 @@ Run:
 
 ```bash
 codex mcp add <friendly-name> --url <server-url>/mcp/<server-name>
+codex mcp login <friendly-name>
 ```
 
-Verify with `codex mcp list` (look for a `glean.com/mcp` URL). Start a new
-Codex task after adding the server; authenticate on first use.
+Complete the browser OAuth flow, then verify with `codex mcp list` (look for a
+`glean.com/mcp` URL). Start a new Codex task after adding and authenticating the
+server.
 
 ## Cursor
 
