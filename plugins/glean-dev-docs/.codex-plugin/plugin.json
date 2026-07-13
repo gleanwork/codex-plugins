@@ -1,0 +1,34 @@
+{
+  "name": "glean-dev-docs",
+  "version": "3.0.0",
+  "description": "Search the public Glean developer documentation — APIs, SDKs, MCP, and integration guides for building with Glean.",
+  "author": {
+    "name": "Glean",
+    "email": "steve.calvert@glean.com",
+    "url": "https://glean.com"
+  },
+  "homepage": "https://docs.glean.com/administration/platform/mcp/about",
+  "repository": "https://github.com/gleanwork/agent-plugins",
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Glean Developer Docs",
+    "shortDescription": "Build with Glean in Codex",
+    "longDescription": "Search public Glean API, SDK, MCP, authentication, and integration documentation while you build in Codex.",
+    "developerName": "Glean",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Search"
+    ],
+    "websiteURL": "https://developers.glean.com/",
+    "privacyPolicyURL": "https://www.glean.com/privacy",
+    "termsOfServiceURL": "https://www.glean.com/terms",
+    "defaultPrompt": [
+      "How do I authenticate with the Glean API?",
+      "Find the Glean Indexing API documentation.",
+      "Show me a Glean SDK example."
+    ],
+    "brandColor": "#343CED"
+  }
+}

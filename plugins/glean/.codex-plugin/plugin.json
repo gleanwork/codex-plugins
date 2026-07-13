@@ -1,0 +1,34 @@
+{
+  "name": "glean",
+  "version": "3.0.0",
+  "description": "Official Glean plugin — search documents, Slack, and email; explore code across repos; find experts and stakeholders; prep for meetings and onboarding.",
+  "author": {
+    "name": "Glean",
+    "email": "steve.calvert@glean.com",
+    "url": "https://glean.com"
+  },
+  "homepage": "https://docs.glean.com/administration/platform/mcp/about",
+  "repository": "https://github.com/gleanwork/agent-plugins",
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Glean",
+    "shortDescription": "Enterprise knowledge in Codex",
+    "longDescription": "Search enterprise documents, Slack, email, code, and people; prepare for meetings; and synthesize trusted company knowledge in Codex.",
+    "developerName": "Glean",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Search"
+    ],
+    "websiteURL": "https://www.glean.com/",
+    "privacyPolicyURL": "https://www.glean.com/privacy",
+    "termsOfServiceURL": "https://www.glean.com/terms",
+    "defaultPrompt": [
+      "Search Glean for the latest project decision.",
+      "Find an expert on this codebase.",
+      "Prepare me for my next meeting."
+    ],
+    "brandColor": "#343CED"
+  }
+}
