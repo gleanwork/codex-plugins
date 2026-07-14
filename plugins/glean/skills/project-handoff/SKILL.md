@@ -17,13 +17,13 @@ status reads). Use that one if the user just wants current status.
 
 ## Tools
 
-This skill drives the standard Glean MCP tools and delegates project research
-to a subagent. If the host exposes the bundled `project-synthesizer` agent, use
-it. Otherwise spawn a general research subagent with the project name and the
-scope described below. For the param shape and pitfalls of `search`, `chat`,
+This skill drives the standard Glean MCP tools. If the host exposes the
+`project-synthesizer` agent, use it for project research. Otherwise delegate to
+a suitable research subagent when subagents are available, or gather the same
+material directly. For the param shape and pitfalls of `search`, `chat`,
 `meeting_lookup`, and `employee_search`, see the using-glean reference at
-`using-glean/reference/`. If no Glean tools are visible, the user hasn't
-connected a Glean MCP server for this host — point them at their host's setup.
+`using-glean/reference/`. If no Glean tools are visible, point the user to the
+**connect-glean** skill.
 
 ## Core Principles
 
@@ -40,10 +40,10 @@ Understand the project's current state.
 1. Ask the user for handoff context:
    - Their role on the project (Owner/Lead, Contributor, Advisor/Stakeholder)
    - What's driving the handoff (new role/team, PTO coverage, reorg, leaving)
-2. Delegate to the bundled `project-synthesizer` agent when available;
-   otherwise spawn a general subagent. Ask it to gather and vet documentation,
-   people and their roles, recent meetings and decisions, and current status /
-   open items. Have it report sources, confidence, conflicts, and gaps.
+2. Use `project-synthesizer` when available; otherwise delegate to a suitable
+   research subagent if possible, or gather the material directly. Cover
+   documentation, people and their roles, recent meetings and decisions, and
+   current status / open items.
 
 ## Phase 2: Gather undocumented knowledge
 
