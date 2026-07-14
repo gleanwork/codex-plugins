@@ -10,19 +10,18 @@ searching your own company's internal knowledge, use the main **Glean** plugin i
 
 ### 1. Install the plugin
 
-Install from your host's plugin marketplace (Claude Code, Cursor, or Codex).
+Install the plugin from the Codex marketplace.
 
 ### 2. Configure the Glean Dev Docs MCP server
 
 This plugin uses the public Glean Developer Docs MCP server. No Glean account
-is required. In Codex, add it with:
+is required. Add it to Codex with:
 
 ```bash
 codex mcp add glean-dev-docs --url https://developers.glean.com/mcp
 ```
 
-Then start a new Codex task. For another host, use its MCP setup to add
-`https://developers.glean.com/mcp` and restart or refresh that host as needed.
+Start a new Codex task so the MCP tools are available.
 
 ## What's Included
 

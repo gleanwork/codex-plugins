@@ -1,17 +1,13 @@
 ---
 name: skill-creation-guide
-description: Guide the user through authoring a new agent skill — when a skill is worth creating, the SKILL.md format, progressive disclosure, and common pitfalls. Also covers discovering skill opportunities from the user's work patterns and generating a SKILL.md from a description. Trigger phrases include "create a skill", "write a skill", "make a skill", "new skill", "SKILL.md format", "how do skills work", "skill best practices", "convert this workflow into a skill", "what should I automate", and "find skill opportunities". Don't use it for invoking existing skills — only when authoring a new one or understanding the skill format.
+description: Discover and vet reusable skill opportunities from the user's Glean work patterns. Use when the user asks "what should I automate", "find skill opportunities", or wants to turn recurring work into skills. For authoring a known skill in Codex, hand off to the built-in skill-creator.
 ---
 
 # Skill Creation Guide
 
-Help the user author effective agent skills — single `SKILL.md` files (in the
-open Agent Skills format) that auto-trigger by context and provide specialized
-guidance. The format is shared across hosts (Claude Code, Cursor, and others);
-only the install location differs.
-
-This skill covers three things: deciding whether a skill is worth creating,
-discovering candidates from the user's work, and generating a well-formed skill.
+Help the user identify valuable agent-skill opportunities from Glean context.
+Vet candidates carefully, then hand actual authoring to Codex's built-in
+`$skill-creator`.
 
 ## BE SKEPTICAL
 
@@ -44,16 +40,14 @@ time, sub-30-second manual tasks, or things the user will forget exist.
 When the user asks what they should automate, analyze their work patterns first.
 
 Requires the Glean MCP tools. If they aren't visible, the user hasn't connected
-a Glean MCP server for this host — point them at their host's Glean MCP setup.
+a Glean MCP server — point them at the **connect-glean** skill.
 
 1. Gather context with Glean: `memory` (roles, responsibilities, active
    projects), `user_activity` (past ~2 weeks), and `search` for process docs
    (`"runbook OR checklist OR process owner:me"`).
-2. Delegate to the bundled `work-pattern-analyzer` agent when available;
-   otherwise spawn a general subagent with the gathered context and the
-   recurrence/value tests above. Ask it to identify repeated queries, frequent
-   contexts, workflow sequences, and manual processes, and to vet each
-   candidate.
+2. If subagent tools are available, delegate this analysis to a general
+   subagent with the gathered context and recurrence/value tests. Otherwise
+   analyze the patterns directly in the current task.
 3. Present vetted recommendations grouped by cumulative value, and show the
    rejected candidates with reasons. A few high-quality candidates beat many
    weak ones — "no automatable patterns" is a valid outcome.
@@ -63,62 +57,13 @@ and `search`.
 
 ## Workflow B — Generate a skill
 
-When the user wants to create a specific skill:
+When the user selects a candidate or already has a specific skill in mind:
 
-1. Clarify (only what isn't already clear): purpose, trigger conditions, tools
-   it uses, and output format.
-2. Delegate to the bundled `skill-generator` agent when available; otherwise
-   spawn a general subagent with the concept, requirements, available-tools
-   context, `SKILL.md` structure below, and skepticism tests. It returns a
-   complete `SKILL.md` — or declines, with reasons, if the idea fails the tests.
-3. Offer to save it to the user's host skills directory, or display it for
-   review. Confirm the path and the trigger phrases that will activate it.
+1. Pass the vetted concept, requirements, available-tools context, and relevant
+   Glean findings to `$skill-creator`.
+2. Let `$skill-creator` determine the final structure, files, and installation
+   location. Do not duplicate its generation workflow here.
 
-## SKILL.md structure
+## Related skill
 
-```yaml
----
-name: skill-name-in-kebab-case
-description: When this skill triggers — specific phrases, contexts, and use cases. Fold trigger phrases into this field; keep it thorough but under ~200 words.
----
-```
-
-```markdown
-# Skill Title
-
-Brief overview of what this skill does.
-
-## When This Applies
-- Condition / trigger phrases
-
-## Main Content
-[The workflow, guidance, or instructions — imperative form]
-
-## Output Format (optional)
-[Template for what the skill produces]
-```
-
-## Best practices
-
-1. **Specific triggers.** "Use when reviewing pull requests, or when the user
-   says 'review this PR' / 'check my code'" beats "use for code review."
-2. **Progressive disclosure.** Essential action first; detail and edge cases
-   below. Push deep, load-on-demand material into `reference/*.md`.
-3. **Actionable, imperative content.** "Search for X", not "Searches for X."
-4. **Name the tools** the skill uses (e.g. Glean `search`, `memory`; or `Grep`,
-   `Read`).
-5. **Stay host-agnostic.** Don't hard-code one host's slash-command syntax or
-   install paths; describe the capability and let each host resolve it.
-
-## Where to save
-
-Skills live in the host's skills directory — e.g. `~/.claude/skills/<name>/`
-(personal) or `.claude/skills/<name>/` (project) for Claude Code, the equivalent
-location for other hosts, or `skills/<name>/` when authoring for a plugin
-library like this repo.
-
-## Related skills
-
-- `work-pattern-analyzer` / `skill-generator` agents back the two workflows
-  above on hosts that support bundled named agents; general subagents are the
-  portable fallback.
+- `$skill-creator` — authors and validates the selected skill for Codex.
