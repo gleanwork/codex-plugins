@@ -8,7 +8,7 @@
       "name": "glean",
       "source": "./plugins/glean",
       "description": "Use Glean to search your company's knowledge, chat with Glean Assistant, and discover and use the skills and connected tools available to your organization.",
-      "version": "3.5.0",
+      "version": "3.5.1",
       "policy": {
         "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"
@@ -19,7 +19,7 @@
       "name": "glean-dev-docs",
       "source": "./plugins/glean-dev-docs",
       "description": "Search the public Glean developer documentation — APIs, SDKs, MCP, and integration guides for building with Glean.",
-      "version": "3.5.0",
+      "version": "3.5.1",
       "policy": {
         "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"
